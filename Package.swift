@@ -11,18 +11,28 @@ let package = Package(
         .executableTarget(
             name: "swift-interop-broken",
             dependencies: [
-                "Window",
-                "CxxLibrary"
+                "CustomWindow",
+                "CxxLibrary",
             ],
             swiftSettings: [.interoperabilityMode(.Cxx)]
         ),
         .target(
-            name: "Window",
+            name: "CustomWindow",
             dependencies: [
-                "WindowsFoundation"
+                "Window",
             ]
         ),
+        .target(
+            name: "Window",
+            dependencies: [
+                "WindowsFoundation",
+            ]
+        ),
+
         .target(name: "WindowsFoundation"),
-        .target(name: "CxxLibrary"),
+        .target(
+            name: "CxxLibrary",
+            swiftSettings: [.interoperabilityMode(.Cxx)]
+        ),
     ]
 )

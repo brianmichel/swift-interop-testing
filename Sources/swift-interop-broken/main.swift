@@ -1,5 +1,4 @@
-import Window
+import CustomWindow
 
-let window = Window()
+let window = CustomWindow()
 window.open()
-_ = window.queryInterface("Hi")
