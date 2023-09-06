@@ -1,15 +1,14 @@
 import Foundation
 @_spi(WinInternal) @_spi(WinImplements) import WindowsFoundation
 
-open class Window: CustomQueryInterface {
+open class Window: UnsealedWindowClass {
     public init() {}
 
     public func open() {
         print("Opening Window...")
     }
 
-    public func queryInterface(_: String) -> Data? {
-        print("Calling the query interface")
-        return nil
+    open func queryInterface(_: String) -> Data? {
+        WindowsFoundation.queryInterface(unsealed: self, 23)
     }
 }
