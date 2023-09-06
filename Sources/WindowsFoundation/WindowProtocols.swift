@@ -1,4 +1,5 @@
 import CxxLibrary
+import WinSDK
 
 public typealias AnyWindowClass = any WindowClass
 public typealias AnyUnsealedWindowClass = any UnsealedWindowClass
