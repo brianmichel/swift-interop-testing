@@ -3,6 +3,8 @@
 
 import PackageDescription
 
+let swiftSettings: [SwiftSetting] = [.interoperabilityMode(.Cxx)]
+
 let package = Package(
     name: "swift-interop-broken",
     products: [
@@ -13,39 +15,31 @@ let package = Package(
         )
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .executableTarget(
             name: "swift-interop-broken",
             dependencies: [
                 "CustomWindow",
             ],
-            swiftSettings: [.interoperabilityMode(.Cxx)]
+            swiftSettings: swiftSettings
         ),
         .target(
             name: "CustomWindow",
             dependencies: [
                 "Window",
             ],
-            swiftSettings: [.interoperabilityMode(.Cxx)]
+           swiftSettings: swiftSettings
         ),
         .target(
             name: "Window",
             dependencies: [
                 "WindowsFoundation",
             ],
-            swiftSettings: [.interoperabilityMode(.Cxx)]
+           swiftSettings: swiftSettings
         ),
         .target(
             name: "WindowsFoundation",
-            dependencies: [
-                "CxxLibrary"
-            ],
-            swiftSettings: [.interoperabilityMode(.Cxx)]
-        ),
-        .target(
-            name: "CxxLibrary",
-             swiftSettings: [.interoperabilityMode(.Cxx)]
+            dependencies: [],
+            swiftSettings: swiftSettings
         ),
     ]
 )

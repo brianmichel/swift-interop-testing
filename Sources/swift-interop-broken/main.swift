@@ -1,5 +1,5 @@
 import CustomWindow
+import WinSDK
 
 let window = CustomWindow()
-window.open()
-_ = window.queryInterface("hi")
+_ = window.queryInterface(IID())

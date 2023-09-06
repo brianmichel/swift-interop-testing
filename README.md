@@ -45,4 +45,4 @@ public func queryInterface(unsealed obj: AnyUnsealedWindowClass, _ iid: IID) -> 
 ```
 ## Discussion
 
-It seems that for whatever reason the `WinSDK.IID` type is unavailable when the interop mode is set for C++ interop.
+It seems that for whatever reason the `WinSDK.IID` type is unavailable when the interop mode is set for C++ interop. You can see that this program compiles without issue if you set an empty array on line 6 of the Package.swift file.
