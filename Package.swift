@@ -41,5 +41,12 @@ let package = Package(
             dependencies: [],
             swiftSettings: swiftSettings
         ),
+        .testTarget(
+            name: "WindowsFoundationTests",
+            dependencies: ["WindowsFoundation"],
+            swiftSettings: [
+                .interoperabilityMode(.Cxx)
+            ]
+        )
     ]
 )
